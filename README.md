@@ -288,3 +288,12 @@ content](https://firebase.google.com/docs/hosting/functions) docs, step 3
 explains about rewrite rules.
 
 https://github.com/richardTowers/learning-firebase/pull/3
+
+... and sure enough, the function we deployed earlier is available on /bigben
+on the preview link that pops up.
+
+I find this setup interesting - the hosting thing gives us a cool way to
+preview things, but at the moment there's only one set of functions - it's the
+same set of functions in preview as it is in production. I imagind this could
+get confusing.
+
