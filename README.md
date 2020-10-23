@@ -152,7 +152,6 @@ actually deployed my code already - all I had to do was git push. That is
 pretty cool.
 
 ```
-  output: ***
     title: 'Production deploy succeeded',
     summary: '[compliment-machine-246ba.web.app](https://compliment-machine-246ba.web.app/)'
 ```
@@ -164,7 +163,8 @@ Looking back at the web interface it looks like it's possible to choose your
 own subdomain, to a degree. Phishy things like `google.web.app` aren't allowed,
 but I imagine there are some pretty legit-looking domains you could get.
 
-For now, our domain just links to the hosting docs.
+For now, the thing firebase has deployed to our domain is just a static site
+that links to the firebase hosting docs.
 
 Hosting
 -------
@@ -176,4 +176,56 @@ file, commit it and push to main, GitHub Actions should deploy an update for
 me... So let's try removing all the gross, complex JS and start with something simple:
 
 https://github.com/richardTowers/learning-firebase/pull/1
+
+As expected, it automatically builds and deploys the code in the PR to a
+preview domain. I corrected a little typo, and the correction got built and
+deployed to the same preview domain. That's pretty nice.
+
+When I merge the PR into `main` it deploys to the main domain for me. Nice.
+
+Hosting dynamic content
+-----------------------
+
+I'm getting the feeling that Firebase wants me to do things on the client side.
+Load some JS into the users browser, fetch some data, and make some changes to
+the page. That's fine, but what if the user chooses not to run JS? Is it
+possible to host an application on Firebase that works for these users?
+
+The docs have [a section on serving dynamic
+content](https://firebase.google.com/docs/hosting/serverless-overview). So it
+looks like it should be possible.
+
+You've got two options - "Cloud Functions" or "Cloud Run" - these look like
+they're Google's brand of Function as a Service (FaaS) and Container as a
+Service (CaaS).
+
+I'm hip, so I'll use the FaaS thing - Cloud Functions.
+
+Cloud Functions
+---------------
+
+I'll follow [the documentation on using Cloud Functions](https://firebase.google.com/docs/hosting/functions),
+and create a little bigben function.
+
+Small aside - the code snippet they give has a bit of a bit of a clanger in it:
+
+```
+const hours = (new Date().getHours() % 12) + 1  // London is UTC + 1hr;
+```
+
+... London's only UTC+1 in the summer, so this "Big Ben" is going to be wrong in the winter. Oh well, doesn't matter.
+
+Anyway, back to the docs. I tried out the ol' emulators, and sure enough, I can make a request to:
+
+http://localhost:5001/compliment-machine-246ba/us-central1/bigben
+
+and I get back BONG BONG (which is right - I'm in London, and it's past 2pm). Cool.
+
+
+
+
+
+
+
+
 
