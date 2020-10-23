@@ -328,3 +328,20 @@ good old days, you just got a server running Linux, and went from there.
 
 > No, it's the children who are wrong.
 
+Integrating Firebase Auth
+-------------------------
+
+Now I really get to the grumpy old man stage. Firebase Auth looks like a really
+cool thing - Auth is difficult, and it does a whole lot for you. But it looks
+like it's all totally dependent on client side JS.
+
+If I want to use it, I'm going to need to cut with the grain of the platform,
+and build a think-client web app with React or something like that.
+
+Which is fine I suppose...
+
+But it must be super confusing for the kids these days, with JavaScript
+floating around on the server, and on the client.
+
+I'm too grumpy to address this right now. So I'll come back to it later.
+
