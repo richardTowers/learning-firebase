@@ -294,6 +294,16 @@ on the preview link that pops up.
 
 I find this setup interesting - the hosting thing gives us a cool way to
 preview things, but at the moment there's only one set of functions - it's the
-same set of functions in preview as it is in production. I imagind this could
+same set of functions in preview as it is in production. I imagine this could
 get confusing.
+
+Using a web framework
+---------------------
+
+The next step in the docs is to use a web framework like express.js for the
+functions. That sounds like a good idea to me - hopefully it will feel a bit
+more "normal", since I'm used to web frameworks and all this serverless stuff
+is new to me.
+
+
 
