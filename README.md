@@ -142,4 +142,38 @@ got up to:
 
 https://github.com/richardTowers/learning-firebase/commit/8f9d83cd0086cb6ef0454a7894ef418180e50f33
 
+Show me what you got
+--------------------
+
+Okay, so the wizards have done their magic. What have I wrought?
+
+I can see that the GitHub Actions it created for me have run. So they've
+actually deployed my code already - all I had to do was git push. That is
+pretty cool.
+
+```
+  output: ***
+    title: 'Production deploy succeeded',
+    summary: '[compliment-machine-246ba.web.app](https://compliment-machine-246ba.web.app/)'
+```
+
+Google bought the whole `.app` top level domain, so they're get to use the
+`web.app` domain. I have to say, that's a pretty nice domain.
+
+Looking back at the web interface it looks like it's possible to choose your
+own subdomain, to a degree. Phishy things like `google.web.app` aren't allowed,
+but I imagine there are some pretty legit-looking domains you could get.
+
+For now, our domain just links to the hosting docs.
+
+Hosting
+-------
+
+The init script [created an index.html](https://github.com/richardTowers/learning-firebase/blob/f3c3e3585647fdb38e5bc75c01c48c9f79f4f2ea/public/index.html)
+file for me in the `public` directory. It looks like this is the thing that's
+getting served on the domain that firebase created for me. So if I change the
+file, commit it and push to main, GitHub Actions should deploy an update for
+me... So let's try removing all the gross, complex JS and start with something simple:
+
+https://github.com/richardTowers/learning-firebase/pull/1
 
