@@ -10,6 +10,10 @@
   },
   "hosting": {
     "public": "public",
+    "rewrites": [{
+      "source": "/bigben",
+      "function": "bigben"
+    }],
     "ignore": [
       "firebase.json",
       "**/.*",

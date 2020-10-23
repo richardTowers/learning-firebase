@@ -269,15 +269,22 @@ So you can still get some functions for free at the moment, but only if you use
 the deprecated node 8 runtime. Got it.
 
 Well, I'm a cheapskate, so I'll use node 8 and switch back to the free plan.
-Honestly I don't know how a beginner could be expected to work this out.
+Honestly I don't know how a beginner could be expected to work this out. Also
+node 8 is going away imminently ("Starting Feb 15, 2021, we'll no longer
+support new deploys or updates of Node.js 8 functions"), so I guess the "get
+started with serverless for free" deal is coming to an end.
 
+Rewrite rules, okay?
+--------------------
 
+So this is all lovely, I've got some dynamic content running on the internet.
+But my main application is running on a baller `.web.app` domain, and my
+function is running on a much less cool `.cloudfunctions.net` domain. Users
+aren't going to stomach that. There must be a way to get serve my dynamic
+content on my cool domain.
 
+Sure enough, going back to the [serve dynamic
+content](https://firebase.google.com/docs/hosting/functions) docs, step 3
+explains about rewrite rules.
 
-
-
-
-
-
-
-
+https://github.com/richardTowers/learning-firebase/pull/3
