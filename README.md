@@ -221,6 +221,58 @@ http://localhost:5001/compliment-machine-246ba/us-central1/bigben
 
 and I get back BONG BONG (which is right - I'm in London, and it's past 2pm). Cool.
 
+I [raise a pull request for that change](https://github.com/richardTowers/learning-firebase/pull/2). I can see that GitHub actions runs, but it runs this command:
+
+```
+npx firebase-tools hosting:channel:deploy pr2-bong-bong-bong --expires 7d --project compliment-machine-246ba --json
+```
+
+which I think only deploys the hosting bit of the app, not the functions.
+
+That's a little bit annoying - the cool preview bits are just for static
+content. If I want dynamic content, that's Firebase Functions, not Firebase
+Hosting. So the preview-channel deployments bit isn't so easy to set up.
+
+Nevermind, I'll just deploy the functions by hand for now.
+
+```
+$ firebase deploy --only functions
+...
+Error: HTTP Error: 400, Billing account for project 'REDACTED' is not found. Billing must be enabled for activation of service(s) 'cloudbuild.googleapis.com,containerregistry.googleapis.com' to proceed.
+```
+
+Ah, fun. So I need to set up billing first? That's a bit weird, because the
+"Firebase billing plans" popup suggests you get "Usage quotas for ...
+Functions" on the free plan. Oh well, up I go to the paid plan "Blaze".
+
+Some card details later, I'm able to deploy my function, and sure enough, it
+ends up on https://us-central1-compliment-machine-246ba.cloudfunctions.net/bigben
+
+... but now I'm suspicious - did it just need my billing information because
+it's defaulted to the node 12 runtime? And the functions are only free on node
+8?
+
+Yep, a closer look at the pricing pages yields a link to the [frequently asked questions](https://firebase.google.com/support/faq?authuser=2#functions-pricing):
+
+> Because of updates to its underlying architecture planned for August 17,
+> 2020, Cloud Functions for Firebase will rely on some additional paid Google
+> services: Cloud Build, Container Registry, and Cloud Storage. These
+> architecture updates will apply for functions deployed to the Node.js 10
+> runtime. Usage of these services will be billed in addition to existing
+> pricing.
+
+> In the new architecture, Cloud Build supports the deployment of functions.
+> You'll be billed only for the computing time required to build a function's
+> runtime container.
+
+So you can still get some functions for free at the moment, but only if you use
+the deprecated node 8 runtime. Got it.
+
+Well, I'm a cheapskate, so I'll use node 8 and switch back to the free plan.
+Honestly I don't know how a beginner could be expected to work this out.
+
+
+
 
 
 
