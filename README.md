@@ -305,5 +305,26 @@ functions. That sounds like a good idea to me - hopefully it will feel a bit
 more "normal", since I'm used to web frameworks and all this serverless stuff
 is new to me.
 
+I set up an express app in:
 
+https://github.com/richardTowers/learning-firebase/pull/4
+
+Which seems to work quite nicely - the only thing the "hosting" is really doing
+now is sticking a nice domain in front of the Cloud Function - all the content
+is served from express. Apart from anything in the public folder. It looks like
+if index.html is present, that's a higher priority than the rewrite rule.
+
+This feels like a more firm footing to start building something on. I still
+find the set up a tiny bit confusing though. The hosting is optimised for
+thick-client apps. I can see that would be great for mobile apps, and I know
+that there's an industry trend towards think client web apps. Those are more
+difficult to build than "traditional" client / server web apps though.
+
+If beginners are organically finding firebase as the platform they use to build
+their first applications, how much other stuff are we making them learn? In the
+good old days, you just got a server running Linux, and went from there.
+
+> Am I out of touch?
+
+> No, it's the children who are wrong.
 
