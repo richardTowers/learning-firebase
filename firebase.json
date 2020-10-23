@@ -11,8 +11,8 @@
   "hosting": {
     "public": "public",
     "rewrites": [{
-      "source": "/bigben",
-      "function": "bigben"
+      "source": "**",
+      "function": "app"
     }],
     "ignore": [
       "firebase.json",
