@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
       <title>Time</title>
     </head>
     <body>
-      <p>In London, the clock strikes:
+      <p>In Peckham, the clock strikes:
         <span id="bongs">${'BONG '.repeat(hours)}</span>
       </p>
     </body>
